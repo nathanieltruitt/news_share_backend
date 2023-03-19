@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_19_141049) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_19_235419) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,7 +56,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_19_141049) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string "content_url", null: false
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "thumbnail_url", null: false
+    t.integer "thumbnail_width", null: false
+    t.integer "thumbnail_height", null: false
+    t.datetime "published_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "channel_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_videos_on_channel_id"
+    t.index ["user_id"], name: "index_videos_on_user_id"
+  end
+
   add_foreign_key "tokens", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
+  add_foreign_key "videos", "channels"
+  add_foreign_key "videos", "users"
 end
