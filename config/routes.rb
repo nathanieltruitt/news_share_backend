@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       post "users/login", to: "users#login"
       delete "users/logout", to: "users#logout"
       get "users/me", to: "users#me"
+
+      get "videos/search", to: "search#search_videos"
     end
   end
 end
