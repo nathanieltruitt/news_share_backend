@@ -48,9 +48,6 @@ gem "blueprinter"
 gem "oj"
 gem "oj_mimic_json"
 
-# used to run stuff within the Procfile
-gem "foreman"
-
 # misc gems
 gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "main"
 gem "to_bool", "~> 2.0"
@@ -71,8 +68,18 @@ group :development do
   gem "annotate"
   gem "listen", "~> 3.3"
   gem "spring"
+
+  # used to run stuff within the Procfile
+  gem "foreman"
+
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
 
 gem "wdm", ">= 0.1.0" if Gem.win_platform?
+
+# used for API calls to external APIs
+gem "faraday"
+
+# for setting up environment variables
+gem "figaro"
