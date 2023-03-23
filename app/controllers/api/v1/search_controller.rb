@@ -3,6 +3,7 @@ class Api::V1::SearchController < Api::V1::ApplicationController
   include YoutubeApi
 
   def search_videos
+    # TODO: need to search for existing youtube video in database before searching youtube api
     # processes search query and returns results from youtube API
     render_error("query cannot be empty.", 401) if params[:search].nil?
 

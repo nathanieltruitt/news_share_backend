@@ -37,7 +37,8 @@ module YoutubeApi
         title: item["snippet"]["title"],
         description: item["snippet"]["description"],
         thumbnail: item["snippet"]["thumbnails"]["default"],
-        published_at: item["snippet"]["publishedAt"]
+        published_at: item["snippet"]["publishedAt"],
+        channel_id: item["snippet"]["channelId"]
       }
     end
     # return the next page token for later use and the list of videos
